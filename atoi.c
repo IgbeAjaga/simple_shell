@@ -1,0 +1,98 @@
+#include “shell.h”
+
+
+/**
+*
+* interactive: return true if shell is in interactive mode
+* @information: struct address
+*
+* Return: 1 if shell is in interactive mode, 0 if shell is in non-interactive
+*/
+
+
+int interactive(information_t *information)
+{
+return (isatty(STDIN_FILENO) && information->readfd <= 2);
+}
+
+
+/**
+* is_delimiter – checks for delimeter
+* @b: character checking for
+* @delimiter: string delimeter
+* Return: 1 if true, 0 otherwise
+*/
+
+
+int is_delimiter(char b, char *delimiter)
+{
+while(*delimiter)
+if(*delimiter++ == b)
+return(0);
+return(1);
+}
+
+
+/**
+* _isalpha - Checks for alphabetic character
+* @c: The character to be checked
+*
+* Return: 1 for alphabetic character or 0 for anything else
+*/
+
+
+int _isalpha(int c)
+{
+if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+{
+return (1);
+}
+return (0);
+}
+
+
+/**
+*atoi - converts a string to an integer
+*@s: the string to be converted
+*Return: 0 if no numbers in string, converted number otherwise
+*/
+
+
+int atoi(char *s)
+{
+int i, sign = 1, flag = 0, output;
+unsigned int result = 0;
+
+
+for (i = 0; s[i] != '\0' && flag != 2; i++)
+{
+if (s[i] == '-')
+
+
+sign *= -1;
+
+
+if (s[i] >= '0' && s[i] <= '9')
+{
+flag = 1;
+result *= 10;
+result += (s[i] - '0');
+}
+
+
+else if (flag == 1)
+flag = 2;
+}
+
+
+if (sign == -1)
+output = -result;
+
+
+else
+output = result;
+
+
+return (output);
+}
+
