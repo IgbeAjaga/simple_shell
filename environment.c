@@ -38,7 +38,7 @@ char *_getenv(info_t *info, const char *name)
  * _mysetenv - Initialize a new environment variable,
  *             or modify the one already available
  * @info: contains prototypes and arguments
- *  Return: Always 0
+ * Return: Always 0
  */
 int _mysetenv(info_t *info)
 {
@@ -55,7 +55,7 @@ int _mysetenv(info_t *info)
 /**
  * _myunsetenv - Removing the environment variable
  * @info: arguments and prototypes
- * reurn: Always 0
+ * Return: Always 0
  */
 int _myunsetenv(info_t *info)
 {

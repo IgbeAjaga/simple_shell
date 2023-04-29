@@ -4,6 +4,7 @@
  * input_buf - buffers chained commands
  * @info: contains parameter
  * @buf: the buffer address
+ * @len: A parameter
  *
  * Return: bytes
  */
@@ -26,8 +27,9 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; 				r--;
-			}
+				(*buf)[r - 1] = '\0';
+				r--;
+				}
 			info->linecount_flag = 1;
 			remove_comments(*buf);
 			build_history_list(info, *buf, info->histcount++);
@@ -44,7 +46,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
  * get_input - gets a line
  * @info: contains parameter
  *
- * Return: bytes 
+ * Return: bytes
  */
 ssize_t get_input(info_t *info)
 {
@@ -55,32 +57,32 @@ ssize_t get_input(info_t *info)
 
 	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
-	if (r == -1) 
+	if (r == -1)
 		return (-1);
-	if (len)	
+	if (len)
 	{
-		j = i; 
-		p = buf + i; 
+		j = i;
+		p = buf + i;
 		check_chain(info, buf, &j, i, len);
-		while (j < len)		{
+		while (j < len)
+		{
 			if (is_chain(info, buf, &j))
 				break;
 			j++;
-		}
+			}
 
-		i = j + 1; 
-		if (i >= len)		{
+		i = j + 1;
+		if (i >= len)
+		{
 			i = len = 0;
 			info->cmd_buf_type = CMD_NORM;
-		}
-
+			}
 		*buf_p = p;
 		return (_strlen(p));
-	}
-
+		}
 	*buf_p = buf;
-	return (r); 
-}
+	return (r);
+	}
 
 /**
  * read_buf - reads a buffer

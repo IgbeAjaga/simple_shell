@@ -43,8 +43,7 @@ int _eputchar(char c)
 /**
  * _putfd -sends the character to fd
  * @c: The character to print is c
- * @fd: The filedescriptor 
- *
+ * @fd: The filedescriptor
  * Return: 1 when successful and -1 when there is error
  */
 int _putfd(char c, int fd)
@@ -65,8 +64,7 @@ int _putfd(char c, int fd)
 /**
  *_putsfd - printing the string inputed
  * @str: the string to be printed is str
- * @fd: the filedescriptor to 
- *
+ * @fd: the filedescriptor
  * Return: the number of chars put
  */
 int _putsfd(char *str, int fd)

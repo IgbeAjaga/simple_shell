@@ -2,7 +2,7 @@
 
 /**
  * list_len - listlenght
- * @h: PPointer 
+ * @h: PPointer
  * Return: listsizes
  */
 
@@ -20,7 +20,7 @@ size_t list_len(const list_t *h)
 
 /**
  * list_to_strings - stringfyarray
- * @head: pointer 
+ * @head: pointer
  *
  * Return: stringfyarray
  */
@@ -58,10 +58,10 @@ char **list_to_strings(list_t *head)
 
 
 /**
- * print_list - list printer 
- * @h: Ppointer 
+ * print_list - list printer
+ * @h: Ppointer
  *
- * Return: listsize 
+ * Return: listsize
  */
 
 size_t print_list(const list_t *h)
@@ -83,10 +83,9 @@ size_t print_list(const list_t *h)
 
 /**
  * node_starts_with - Prefixnode
- * @node: pointer 
- * @prefix: string 
+ * @node: pointer
+ * @prefix: string
  * @c: another character Prefixnode
- *
  * Return: NULL or node depending on success
  */
 
@@ -106,9 +105,8 @@ list_t *node_starts_with(list_t *node, char *prefix, char c)
 
 /**
  * get_node_index - nodeindex getter
- * @head: pointer 
- * @node: pointer 
- *
+ * @head: pointer
+ * @node: pointer
  * Return: -1 or nodeindex
  */
 

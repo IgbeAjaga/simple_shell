@@ -2,9 +2,9 @@
 
 /**
  * interactive - if shell is interactive, return true
- * @information: struct address
+ * @info: struct address
  *
- * Return: if shell is in interactive mode return 1, else return  0 
+ * Return: if shell is in interactive mode return 1, else return 0
  **/
 int interactive(info_t *info)
 {
@@ -65,7 +65,7 @@ int _atoi(char *s)
 			flagging = 2;
 	}
 
-	if (sign == -1)
+	if (signing == -1)
 		output = -result;
 	else
 		output = result;

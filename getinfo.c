@@ -35,7 +35,7 @@ void set_info(info_t *info, char **av)
 				info->argv[1] = NULL;
 			}
 		}
-		for (x = 0; info->argv && info->argv[x]; i++)
+		for (x = 0; info->argv && info->argv[x]; x++)
 			;
 		info->argc = x;
 

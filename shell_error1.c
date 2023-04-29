@@ -2,7 +2,7 @@
 
 /**
  * _erratoi - converting string to an integer
- * @s: the string 
+ * @s: the string
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
  */
@@ -12,7 +12,7 @@ int _erratoi(char *s)
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++; 
+		s++;
 	for (i = 0;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -31,6 +31,7 @@ int _erratoi(char *s)
 /**
  * print_error - printing an error message
  * @info: the parameter and return info
+ * @info_t: a parameter
  * @estr: string containing specified error type
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error

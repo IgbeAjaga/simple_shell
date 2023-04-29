@@ -79,8 +79,7 @@ int _mycd(info_t *info)
 /**
  * _myhelp - changing the process current directory
  * @info: contains argument and prototypes
- * 
- *  Return: Always 0
+ * Return: Always 0
  */
 int _myhelp(info_t *info)
 {

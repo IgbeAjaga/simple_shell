@@ -45,7 +45,7 @@ int _putchar(char c)
 }
 /**
  *_puts - This prints a string output
- *@str: string 
+ *@str: string
  *
  * Return: void
  */

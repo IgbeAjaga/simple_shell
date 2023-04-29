@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _strlen - stringlengths 
+ * _strlen - stringlengths
  * @s: strinmg
  *
  * Return: returns the array lenght
@@ -21,7 +21,6 @@ int _strlen(char *s)
 
 /**
  * starts_with - checks which prams starts
- * 
  * @haystack:search stringg
  * @needle: Fincid substrinng
  *
@@ -40,7 +39,7 @@ char *starts_with(const char *haystack, const char *needle)
  * _strcat - concatenate
  * @dest: destinatiobuffer
  * @src: buffersource
- * Return: reruns pointer 
+ * Return: reruns pointer
  */
 char *_strcat(char *dest, char *src)
 {

@@ -3,7 +3,7 @@
 /**
  **_memset -memory filler
  *@s: pointer
- *@b: byte 
+ *@b: byte
  *@n: needed byte
  *Return:pointer
  */
@@ -34,9 +34,9 @@ void ffree(char **pp)
 }
 
 /**
- * _realloc - reallocatesmemory block 
+ * _realloc - reallocatesmemory block
  * @ptr: pointet
- * @old_size: oldbyte 
+ * @old_size: oldbyte
  * @new_size: newbyte\
  *
  * Return: pointer
@@ -63,6 +63,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	while (old_size--)
 		p[old_size] = ((char *)ptr)[old_size];
 	free(ptr);
-    
 	return (p);
 }

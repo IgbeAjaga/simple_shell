@@ -5,7 +5,7 @@
  * @str: string input as parameter
  * @d: string that represnets the dilema
  *
- * Return: this return a pointer, else a NULL 
+ * Return: this return a pointer, else a NULL
  */
 
 char **strtow(char *str, char *d)
@@ -52,10 +52,9 @@ char **strtow(char *str, char *d)
 
 /**
  * **strtow2 - string is divided into individual char
- * 
- * @st: string that is inputes
+ * @str: string that is inputes
  * @d: dilemeter
- * Return: this return a pointer, else a NULL 
+ * Return: this return a pointer, else a NULL
  */
 
 char **strtow2(char *str, char d)
@@ -94,6 +93,5 @@ char **strtow2(char *str, char d)
 		s[j][m] = 0;
 	}
 	s[j] = NULL;
-	
 	return (s);
 }

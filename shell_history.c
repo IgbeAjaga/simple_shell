@@ -2,7 +2,7 @@
 
 /**
  * get_history_file - gettig files containing history
- * @info: contains parameter 
+ * @info: contains parameter
  *
  * Return: allocated string which contaings history file
  */
@@ -55,7 +55,7 @@ int write_history(info_t *info)
 
 /**
  * read_history - reading history from file
- * @info: the parameter 
+ * @info: the parameter
  *
  * Return: 1 is count on success, 0 otherwise
  */

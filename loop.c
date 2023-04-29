@@ -47,7 +47,7 @@ int hsh(info_t *info, char **av)
  * find_builtin - builtin cmd
  * @info: prams
  *
- * Return: returns -1,1,0  
+ * Return: returns -1,1,0
  */
 int find_builtin(info_t *info)
 {
@@ -84,8 +84,8 @@ int find_builtin(info_t *info)
 void find_cmd(info_t *info)
 {
 	char *path = NULL;
-	int i, 
-    int k;
+	int i;
+	int k;
 
 	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
@@ -120,7 +120,7 @@ void find_cmd(info_t *info)
 
 /**
  * fork_cmd - forks a an exec thread to run cmd
- * @info: parameter 
+ * @info: parameter
  * Return: noting
  */
 
