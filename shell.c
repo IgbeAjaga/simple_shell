@@ -171,4 +171,208 @@ void shell_help(){
          "\n>improper space handling");
 	return;
 	}
+/**
+ * This is C Shell by Joshua and Igbe
+ * Built in help commands.
+ * Betty would be proud.
+ *
+ * Description:  A simple shell programmed in C,
+ * This is an ALX project.
+ */
+void shell_help()
+{
+    puts("\n***WELCOME TO JOSHUA AND IGBE SHELL HELP***"
+         "\nALX Simple Shell Project"
+         "\nList of Commands supported:"
+         "\n>cd"
+         "\n>ls"
+         "\n>exit"
+         "\n>help"
+         "\n>all other general commands available in UNIX shell"
+         "\n>pipe handling"
+         "\n>improper space handling");
+
+
+    return;
+}
+
+
+/**
+ * This is C Shell by Joshua and Igbe
+ * Executing built in commands
+ * Betty would be proud.
+ *
+ * Description:  A simple shell programmed in C,
+ * This is an ALX project.
+ */
+int cmd_handler(char **parsing)
+{
+    int commandnum = 4, x, switchingarg = 0;
+    char *listOfcommands[commandnum];
+    char *username;
+
+
+    listofcommands[0] = "cd";
+    listofcommands[1] = "ls";
+    listofcommands[2] = "exit";
+    listofcommands[3] = "help";
+
+
+    for (x = 0; x < commandnum; x++)
+    {
+        if (strcmp(parsing[0], listofcommands[x]) == 0)
+        {
+            switchingarg = x + 1;
+            break;
+        }
+    }
+
+
+    switch (switchingarg)
+    {
+    case 1:
+        perror("\nGoodbye\n");
+        exit(0);
+    case 2:
+        chdir(parsing[1]);
+        return 1;
+    case 3:
+        shell_help();
+        return 1;
+    case 4:
+        username = getenv("USER");
+        perror("\nHello %s.\nThere are a list "
+               "of commands explained."
+               "\nUse help to know more about the commands\n",
+               username);
+        return 1;
+    default:
+        break;
+    }
+
+
+    return 0;
+}
+
+
+/**
+ * This is C Shell by Joshua and Igbe
+ * Finding pipe
+ * Betty would be proud.
+ *
+ * Description:  A simple shell programmed in C,
+ * This is an ALX project.
+ */
+int parsing_pipe(char *str, char **strpiped)
+{
+    int x;
+    for (x = 0; x < 2; x++)
+    {
+        strpiped[x] = strsep(&str, "|");
+        if (strpiped[x] == NULL)
+            break;
+    }
+
+
+    if (strpiped[1] == NULL)
+        return 0;
+    else
+    {
+        return 1;
+    }
+}
+
+
+/**
+ * This is C Shell by Joshua and Igbe
+ * Parsing command words
+ * Betty would be proud.
+ *
+ * Description:  A simple shell programmed in C,
+ * This is an ALX project.
+ */
+void parsing_space(char *str, char **parsing)
+{
+    int x;
+
+
+    for (x = 0; x < MAXLIST; x++)
+    {
+        parsing[x] = strsep(&str, " ");
+
+
+        if (parsing[x] == NULL)
+            break;
+        if (strlen(parsing[x]) == 0)
+            x--;
+    }
+}
+
+
+int processing_string(char *str, char **parsing, char **parsingpipe)
+{
+
+
+    char *strpiped[2];
+    int piped = 0;
+
+
+    piped = parsing_pipe(str, strpiped);
+
+
+    if (piped)
+    {
+        parsing_space(strpiped[0], parsing);
+        parsing_space(strpiped[1], parsingpipe);
+    }
+    else
+    {
+
+
+        parsing_space(str, parsing);
+    }
+
+
+    if (cmd_handler(parsing))
+        return 0;
+    else
+        return 1 + piped;
+}
+
+
+/**
+ * This is C Shell by Joshua and Igbe
+ * executionflag returns zero if there is no command
+ * executionflag returns 1 if it is a simple command
+ * executionflag returns 2 if it is including a pipe.
+ * Description:  A simple shell programmed in C,
+ * This is an ALX project.
+ */
+int main()
+{
+    char inputstring[MAXNUM], *parsing_args[MAXLIST];
+    char *parsingargs_piped[MAXLIST];
+    int executionflag = 0;
+    init_shell();
+
+
+    while (1)
+    {
+        print_directory();           
+	if (user_input(inputString))
+            continue;
+
+
+        executionflag = processing_string(inputstring,
+                                          parsing_args, parsingargs_piped);
+
+	if (executionflag == 1) 
+            exec_args(parsing_args);
+
+
+        if (executionflag == 2)
+            execargs_piped(parsing_args, parsingargs_piped);
+    }
+    return 0;
+}
 
